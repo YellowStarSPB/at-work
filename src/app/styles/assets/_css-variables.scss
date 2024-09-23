@@ -1,0 +1,9 @@
+:root {
+    --padding-x: 15px;
+}
+
+@media (min-width: 1279.98px) {
+    :root {
+        --padding-x: calc(50% - 580px);
+    }
+}

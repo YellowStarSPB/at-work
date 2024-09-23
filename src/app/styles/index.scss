@@ -1,0 +1,10 @@
+@import './assets/reset';
+@import './assets/fonts';
+@import './assets/colors';
+@import './assets/css-variables';
+@import './assets/grid';
+
+body {
+    background-color: var(--dark-white);
+    font: 600 14px/100% Manrope, sans-serif;
+}
