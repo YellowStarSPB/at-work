@@ -1,0 +1,81 @@
+.profileData {
+    .title {
+        font-size: 24px;
+        padding-bottom: 16px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--light-gray);
+    }
+    .profileInfo {
+        margin-bottom: 25px;
+    }
+    .profileInfoLabel {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .profileInfoInput {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--black);
+        padding: 11px 20px 11px 16px;
+        border: 2px solid var(--light-gray);
+        border-radius: 50px;
+        margin-top: 10px;
+        &::placeholder {
+            color: var(--medium-gray);
+        }
+    }
+    .profileInfoInputClear {
+        position: absolute;
+        bottom: 20px;
+        right: 16px;
+        width: 9px;
+        height: 9px;
+        background: url('/images/input-clear-icon.svg') center/contain no-repeat;
+    }
+    .submitButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: var(--black);
+        border-radius: 50px;
+        color: var(--white);
+        padding: 12px 0;
+    }
+    @media (min-width: 1279.98px) {
+        .title {
+            margin-bottom: 24px;
+        }
+        .profileInfo {
+            width: 420px;
+            margin-bottom: 30px;
+        }
+        .profileInfoLabel {
+            font-size: 18px;
+            margin-bottom: 24px;
+            &:last-child {
+            }
+        }
+        .profileInfoInput {
+            font-size: 16px;
+            padding: 10px 40px 10px 16px;
+            &::placeholder {
+            }
+        }
+        .submitButton {
+            font-size: 16px;
+            width: 170px;
+            transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+            &:hover {
+                color: var(--dark-gray);
+                background-color: var(--dark-white);
+            }
+        }
+    }
+}

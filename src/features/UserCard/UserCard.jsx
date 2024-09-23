@@ -35,7 +35,7 @@ function UserCard({ customClass }) {
                             showDropdown ? styles.active : ''
                         }`}
                     >
-                        <Link className={styles.userDropdownItem} to={'/'}>
+                        <Link className={styles.userDropdownItem} to={'/user/123'}>
                             Редактировать
                         </Link>
                         <button className={styles.userDropdownItem}>Архивировать</button>

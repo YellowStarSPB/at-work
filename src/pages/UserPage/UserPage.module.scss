@@ -1,0 +1,109 @@
+.editUserPage {
+    padding-bottom: 30px;
+    .goBack {
+        display: flex;
+        align-items: center;
+        color: var(--dark-gray);
+        font-size: 16px;
+        margin-bottom: 35px;
+        &::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url('/images/back-arrow.svg') center/contain no-repeat;
+            margin-right: 15px;
+        }
+    }
+    .userContent {
+    }
+
+    .left,
+    .right {
+        border-radius: 16px;
+        padding: 28px;
+        background: var(--white);
+    }
+    .left {
+        margin-bottom: 30px;
+        .userAvatar {
+            display: block;
+            width: 100%;
+            max-width: 290px;
+            height: 190px;
+            margin: 0 auto 25px auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .userNavigate {
+            display: flex;
+            flex-direction: column;
+            font-weight: 500;
+        }
+        .navLink {
+            color: var(--medium-gray);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+            transition: color 0.3s ease-in-out;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &.active {
+                color: var(--black);
+            }
+        }
+    }
+    .right {
+    }
+    @media (min-width: 1279.98px) {
+        .goBack {
+            font-size: 20px;
+            margin-bottom: 45px;
+            &::before {
+                width: 28px;
+                height: 28px;
+                background-image: url('/images/back-arrow-desktop.svg');
+                margin-right: 8px;
+                transition: transform 0.3s ease-in-out;
+            }
+            &:hover {
+                &::before {
+                    transform: translateX(-5px);
+                }
+            }
+        }
+        .userContent {
+            display: flex;
+        }
+
+        .left,
+        .right {
+            padding: 40px;
+        }
+        .left {
+            margin: 0 40px 0 0;
+            .userAvatar {
+                height: 485px;
+                margin-bottom: 40px;
+                border-radius: 0;
+            }
+            .userNavigate {
+                font-weight: 600;
+                font-size: 16px;
+            }
+            .navLink {
+                color: var(--medium-gray);
+                padding-bottom: 12px;
+                margin-bottom: 25px;
+                &:last-child {
+                }
+                &.active {
+                }
+            }
+        }
+        .right {
+            flex: 1;
+        }
+    }
+}
