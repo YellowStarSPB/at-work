@@ -1,0 +1,51 @@
+.userProfile {
+    .favoritesButton {
+        display: none;
+    }
+    .notificationsButton {
+        display: none;
+    }
+    .userInfo {
+    }
+    .userAvatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+    }
+    .userName {
+        display: none;
+    }
+    @media (min-width: 1279.98px) {
+        display: flex;
+        align-items: center;
+        .favoritesButton {
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url('/images/favorite-icon.svg') center/contain no-repeat;
+            margin-right: 5px;
+        }
+        .notificationsButton {
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: url('/images/notification.svg') center/contain no-repeat;
+        }
+        .userInfo {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        .userAvatar {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        .userName {
+            display: inline;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+    }
+}
