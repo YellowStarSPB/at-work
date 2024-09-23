@@ -6,5 +6,13 @@
 
 body {
     background-color: var(--dark-white);
-    font: 600 14px/100% Manrope, sans-serif;
+    font: 600 14px / normal Manrope, sans-serif;
+    color: var(--black);
+}
+
+.main {
+    padding-top: calc(var(--header-height) + 25px);
+    @media (min-width: 1279.98px) {
+        padding-top: calc(var(--header-height) + 40px);
+    }
 }

@@ -1,0 +1,22 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+    .headerLogo {
+        display: block;
+        width: 125px;
+        height: 25px;
+        background: url('/images/at-work-logo.svg') center/contain no-repeat;
+    }
+
+    @media (min-width: 1279.98px) {
+        .headerLogo {
+        }
+    }
+}
