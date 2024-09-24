@@ -15,10 +15,10 @@ const Input = React.memo(
         };
 
         return (
-            <label className={styles.profileInfoLabel}>
+            <label className={styles.label}>
                 {label}
                 <input
-                    className={`${styles.profileInfoInput} ${
+                    className={`${styles.input} ${
                         state.isDirty && !state.inputValid ? styles.error : ''
                     } ${state.inputValid && state.isDirty ? styles.valid : ''}`}
                     type="text"
@@ -30,7 +30,7 @@ const Input = React.memo(
                 />
                 <button
                     onClick={handleClearValue}
-                    className={styles.profileInfoInputClear}
+                    className={styles.clearValueButton}
                 ></button>
             </label>
         );
