@@ -18,11 +18,6 @@
         &::placeholder {
             color: var(--medium-gray);
         }
-        &:focus {
-            + .profileInfoInputClear {
-                opacity: 1;
-            }
-        }
         &.error {
             color: red;
             border-color: red;
@@ -47,6 +42,9 @@
         background: url('/images/input-clear-icon.svg') center/contain no-repeat;
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
+        &.showBtn{
+            opacity: 1;
+        }
     }
     @media (min-width: 1279.98px) {
         font-size: 18px;

@@ -30,7 +30,9 @@ const Input = React.memo(
                 />
                 <button
                     onClick={handleClearValue}
-                    className={styles.clearValueButton}
+                    className={`${styles.clearValueButton} ${
+                        state.value.length > 2 ? styles.showBtn : ''
+                    }`}
                 ></button>
             </label>
         );
