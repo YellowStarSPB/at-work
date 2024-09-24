@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react';
-import styles from './HomePage.module.scss';
-import UserCard from '../../features/user/components/UserCard/UserCard';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../features/user/api/getUsers';
-import { getUsersState } from '../../features/user/usersSelectors';
+import { getArchiveUser, getUsersState } from '../../features/user/usersSelectors';
+import UserCard from '../../features/user/components/UserCard/UserCard';
+//styles
+import styles from './HomePage.module.scss';
 
 function HomePage() {
     const dispatch = useDispatch();
 
-    const { activeUsers, status, archiveUsers } = useSelector(getUsersState);
+    const { items, status } = useSelector(getUsersState);
+    const archiveUsers = useSelector(getArchiveUser);
 
     useEffect(() => {
-        if(activeUsers.length === 0){
+        if (items.length === 0) {
             dispatch(getUsers());
         }
     }, []);
@@ -22,14 +24,16 @@ function HomePage() {
                 <h2 className={styles.title}>Активные</h2>
                 <div className={styles.usersList}>
                     {status === 'loading'
-                        ? 'loading...'
-                        : activeUsers.map((user) => (
-                              <UserCard
-                                  key={user.id}
-                                  user={user}
-                                  customClass={styles.cardStyle}
-                              />
-                          ))}
+                        ? 'Loading...'
+                        : items
+                              .filter((user) => user.archiveUser !== true)
+                              .map((user) => (
+                                  <UserCard
+                                      key={user.id}
+                                      user={user}
+                                      customClass={styles.cardStyle}
+                                  />
+                              ))}
                 </div>
             </div>
             {archiveUsers.length !== 0 && (
