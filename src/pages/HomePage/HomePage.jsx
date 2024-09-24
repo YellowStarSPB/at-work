@@ -1,26 +1,51 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './HomePage.module.scss';
-import UserCard from '../../features/UserCard/UserCard';
+import UserCard from '../../features/user/components/UserCard/UserCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../features/user/api/getUsers';
+import { getUsersState } from '../../features/user/usersSelectors';
 
 function HomePage() {
+    const dispatch = useDispatch();
+
+    const { activeUsers, status, archiveUsers } = useSelector(getUsersState);
+
+    useEffect(() => {
+        if(activeUsers.length === 0){
+            dispatch(getUsers());
+        }
+    }, []);
+
     return (
         <div className={styles.homePage}>
             <div className={styles.activeUsers}>
                 <h2 className={styles.title}>Активные</h2>
                 <div className={styles.usersList}>
-                    <UserCard customClass={styles.cardStyle} />
-                    <UserCard customClass={styles.cardStyle} />
-                    <UserCard customClass={styles.cardStyle} />
+                    {status === 'loading'
+                        ? 'loading...'
+                        : activeUsers.map((user) => (
+                              <UserCard
+                                  key={user.id}
+                                  user={user}
+                                  customClass={styles.cardStyle}
+                              />
+                          ))}
                 </div>
             </div>
-            <div className={styles.archiveUsers}>
-                <h2 className={styles.title}>Архив</h2>
-                <div className={styles.usersList}>
-                    <UserCard customClass={styles.cardStyle} />
-                    <UserCard customClass={styles.cardStyle} />
-                    <UserCard customClass={styles.cardStyle} />
+            {archiveUsers.length !== 0 && (
+                <div className={styles.archiveUsers}>
+                    <h2 className={styles.title}>Архив</h2>
+                    <div className={styles.usersList}>
+                        {archiveUsers.map((user) => (
+                            <UserCard
+                                key={user.id}
+                                user={user}
+                                customClass={styles.cardStyle}
+                            />
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }

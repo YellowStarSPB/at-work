@@ -29,6 +29,25 @@
         &::placeholder {
             color: var(--medium-gray);
         }
+        &:focus {
+            + .profileInfoInputClear {
+                opacity: 1;
+            }
+        }
+        &.error {
+            color: red;
+            border-color: red;
+            &::placeholder {
+                color: red;
+            }
+        }
+        &.valid {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            &::placeholder {
+                color: var(--accent-color);
+            }
+        }
     }
     .profileInfoInputClear {
         position: absolute;
@@ -37,6 +56,8 @@
         width: 9px;
         height: 9px;
         background: url('/images/input-clear-icon.svg') center/contain no-repeat;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
     }
     .submitButton {
         display: flex;
@@ -56,18 +77,18 @@
             width: 420px;
             margin-bottom: 30px;
         }
-        .profileInfoLabel {
-            font-size: 18px;
-            margin-bottom: 24px;
-            &:last-child {
-            }
-        }
-        .profileInfoInput {
-            font-size: 16px;
-            padding: 10px 40px 10px 16px;
-            &::placeholder {
-            }
-        }
+        // .profileInfoLabel {
+        //     font-size: 18px;
+        //     margin-bottom: 24px;
+        //     &:last-child {
+        //     }
+        // }
+        // .profileInfoInput {
+        //     font-size: 16px;
+        //     padding: 10px 40px 10px 16px;
+        //     &::placeholder {
+        //     }
+        // }
         .submitButton {
             font-size: 16px;
             width: 170px;
