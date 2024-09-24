@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './UserPage.module.scss';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-const setActive = ({ isActive }) => (isActive ? styles.active : '');
+
+
 function UserPage() {
     const navigate = useNavigate();
 
